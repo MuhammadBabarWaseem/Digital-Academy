@@ -1,7 +1,9 @@
 import { Grid, styled, Toolbar } from "@mui/material";
+
+import { LayoutProps } from "../types/interface";
+
 import Header from "../components/Header";
 import SideNav from "../components/Sidebar";
-import { ReactNode } from "react";
 
 const Root = styled("div")(() => ({
   display: "flex",
@@ -14,15 +16,11 @@ const Main = styled("main")(({ theme }) => ({
   backgroundColor: "#F2F5FB",
 }));
 
-interface LayoutProps {
-  children: ReactNode;
-}
-
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <Root>
       <Header />
-      <Grid mt={6}>
+      <Grid mt={6}>0
         <SideNav />
       </Grid>
       <Main>

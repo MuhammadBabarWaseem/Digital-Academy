@@ -1,21 +1,13 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
+import { FaChevronDown } from 'react-icons/fa';
+
 import {
-  Box,
-  Typography,
-  Avatar,
-  styled,
-  useTheme,
-  Button,
-  Divider,
-  Card,
-  Modal,
-  TextField,
-  CardContent,
-} from "@mui/material";
-import { FaChevronDown } from "react-icons/fa";
-import CirclularProgress from "./ProgressBar";
-import { Badges } from "../utils/Badges";
-import RenderBadges from "./Badges";
+    Avatar, Box, Button, Card, CardContent, Divider, Modal, styled, TextField, Typography, useTheme
+} from '@mui/material';
+
+import { Badges } from '../utils/Badges';
+import RenderBadges from './Badges';
+import CirclularProgress from './ProgressBar';
 
 const FilterButton = styled(Button)(({ theme }) => ({
   padding: theme.spacing(1, 2),

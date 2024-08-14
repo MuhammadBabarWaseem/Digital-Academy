@@ -1,46 +1,6 @@
-// import { Avatar, Box } from "@mui/material";
-// import ProfileBg from "../assets/Profile_Bg.png";
+import { Avatar, Box } from '@mui/material';
 
-// const Profile = () => {
-//   return (
-//     <Box
-//       my={4}
-//       p={10}
-//       bgcolor="white"
-//       borderRadius={2}
-//       position="relative"
-//       justifyContent="center"
-//     >
-//       <Box position="relative">
-//         <img
-//           style={{ objectFit: "cover", width: "100%" }}
-//           src={ProfileBg}
-//           alt="Background"
-//         />
-
-//         <Avatar
-//           src="https://shorturl.at/qkuCw"
-//           sx={{
-//             width: { xs: 100, sm: 120, md: 135 },
-//             height: { xs: 100, sm: 120, md: 135 },
-//             position: "absolute",
-//             top: { xs: "50%", sm: "70%" },
-//             left: { xs: "50%", sm: "5%" },
-//             transform: {
-//               xs: "translate(-50%, -50%)",
-//               sm: "translate(0, 0)",
-//             },
-//           }}
-//         />
-//       </Box>
-//     </Box>
-//   );
-// };
-
-// export default Profile;
-
-import { Avatar, Box } from "@mui/material";
-import ProfileBg from "../assets/Profile_Bg.png";
+import ProfileBg from '../assets/Profile_Bg.png';
 
 const Profile = () => {
   return (

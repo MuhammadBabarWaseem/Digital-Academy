@@ -1,4 +1,4 @@
-import { Box, Card, Typography, Avatar } from "@mui/material";
+import { Avatar, Box, Card, Typography } from '@mui/material';
 
 const StatsCard = ({
   imageUrl,

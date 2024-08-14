@@ -1,12 +1,8 @@
-import React from "react";
-import { Grid, Paper, Typography, CircularProgress } from "@mui/material";
+import React from 'react';
 
-interface Course {
-  title: string;
-  videos: number;
-  time: string;
-  progress: number;
-}
+import { CircularProgress, Grid, Paper, Typography } from '@mui/material';
+
+import { Course } from '../types/interface';
 
 const CourseList: React.FC = () => {
   const courses: Course[] = [

@@ -1,10 +1,5 @@
-import { Badges } from "./Badges";
-
-export interface CardData {
-  id: number;
-  imageSrc: string;
-  text: string;
-}
+import { CardData } from '../types/interface';
+import { Badges } from './Badges';
 
 export const fundamentalCardData: CardData[] = [
   { id: 1, imageSrc: Badges[0], text: "Data Management" },

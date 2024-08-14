@@ -6,11 +6,11 @@ import useScreenSize from "../hooks/useScreenSize";
 import Layout from "../layout/main";
 
 const Dashboard = () => {
-  const { isLargeScreen } = useScreenSize();
+  const { isLgUp } = useScreenSize();
 
   return (
     <Layout>
-      <Grid container spacing={3} direction={isLargeScreen ? "row" : "column"}>
+      <Grid container spacing={3} direction={isLgUp ? "row" : "column"}>
         <Grid item xs={12} md={9}>
           <Stats />
           <LearningPaths />

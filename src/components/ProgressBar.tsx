@@ -1,10 +1,8 @@
-import React from "react";
-import { CircularProgress, Typography, Box } from "@mui/material";
+import React from 'react';
 
-interface CircularProgressProps {
-  value: number;
-  size?: number;
-}
+import { Box, CircularProgress, Typography } from '@mui/material';
+
+import { CircularProgressProps } from '../types/interface';
 
 const CircularProgressComponent: React.FC<CircularProgressProps> = ({
   value,

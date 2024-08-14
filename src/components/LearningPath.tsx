@@ -1,25 +1,16 @@
-import React, { useState } from "react";
-import {
-  Box,
-  Typography,
-  Button,
-  Card,
-  CardContent,
-  Divider,
-} from "@mui/material";
-import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
-import {
-  businessCardData,
-  CardData,
-  courseCardData,
-  fundamentalCardData,
-} from "../utils/dummyData";
-import CourseCard from "./CourseCard";
-import useScreenSize from "../hooks/useScreenSize";
+import React, { useState } from 'react';
+import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+
+import { Box, Button, Card, CardContent, Divider, Typography } from '@mui/material';
+
+import useScreenSize from '../hooks/useScreenSize';
+import { CardData } from '../types/interface';
+import { businessCardData, courseCardData, fundamentalCardData } from '../utils/dummyData';
+import CourseCard from './CourseCard';
 
 const LearningPaths: React.FC = () => {
   const [selectedCourse, setSelectedCourse] = useState<string>("");
-  const { isExtraLargeScreen, isLargeScreen, isXsScreen } = useScreenSize();
+  const { isXlUp, isLgUp, isXsToMd } = useScreenSize();
 
   const handleCardClick = (text: string) => {
     setSelectedCourse(text);
@@ -101,8 +92,8 @@ const LearningPaths: React.FC = () => {
       <Box
         display="flex"
         justifyContent="center"
-        flexDirection={isExtraLargeScreen ? "row" : "column"}
-        gap={isExtraLargeScreen ? 4 : 0}
+        flexDirection={isXlUp ? "row" : "column"}
+        gap={isXlUp ? 4 : 0}
       >
         <Box>
           <Typography variant="h6" gutterBottom>
@@ -129,7 +120,7 @@ const LearningPaths: React.FC = () => {
           </Box>
         </Box>
 
-        <Box sx={{ mt: isXsScreen ? 2 : 0 }}>
+        <Box sx={{ mt: isXsToMd ? 2 : 0 }}>
           <Typography variant="h6" gutterBottom>
             Business Function
           </Typography>
@@ -165,8 +156,8 @@ const LearningPaths: React.FC = () => {
           justifyContent: "center",
           alignItems: "center",
           flexWrap: "wrap",
-          gap: isLargeScreen ? 30 : 10,
-          rowGap: isLargeScreen ? 40 : 10,
+          gap: isLgUp ? 30 : 10,
+          rowGap: isLgUp ? 40 : 10,
         }}
       >
         {courseCardData.map((course, index) => (

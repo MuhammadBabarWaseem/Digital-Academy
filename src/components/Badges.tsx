@@ -1,4 +1,4 @@
-import { Grid, Box } from "@mui/material";
+import { Box, Grid } from '@mui/material';
 
 const RenderBadges = ({ imageUrls }: { imageUrls: string[] }) => {
   return (

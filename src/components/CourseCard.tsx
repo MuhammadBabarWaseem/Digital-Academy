@@ -1,33 +1,19 @@
-import React, { useState } from "react";
-import {
-  Card,
-  CardContent,
-  CardMedia,
-  Typography,
-  IconButton,
-  Box,
-  Button,
-  Modal,
-} from "@mui/material";
-import VideoLibraryIcon from "@mui/icons-material/VideoLibrary";
-import ClockIcon from "@mui/icons-material/AccessTime";
-import CircularProgress from "./ProgressBar";
-import LockedIcon from "../assets/Locked.png";
-import { useNavigate } from "react-router-dom";
-import { LuPlayCircle } from "react-icons/lu";
-import { dummyCourseData } from "../utils/dummyData";
-import { IoCloseCircleOutline } from "react-icons/io5";
-import useScreenSize from "../hooks/useScreenSize";
+import React, { useState } from 'react';
+import { IoCloseCircleOutline } from 'react-icons/io5';
+import { LuPlayCircle } from 'react-icons/lu';
+import { useNavigate } from 'react-router-dom';
 
-interface CourseCardProps {
-  imageUrl: string;
-  title: string;
-  videoCount: number;
-  duration: string;
-  progress: number;
-  isLocked: boolean;
-  isVideo?: boolean;
-}
+import ClockIcon from '@mui/icons-material/AccessTime';
+import VideoLibraryIcon from '@mui/icons-material/VideoLibrary';
+import {
+    Box, Button, Card, CardContent, CardMedia, IconButton, Modal, Typography
+} from '@mui/material';
+
+import LockedIcon from '../assets/Locked.png';
+import useScreenSize from '../hooks/useScreenSize';
+import { CourseCardProps } from '../types/interface';
+import { dummyCourseData } from '../utils/dummyData';
+import CircularProgress from './ProgressBar';
 
 const CourseCard: React.FC<CourseCardProps> = ({
   imageUrl,
@@ -40,7 +26,7 @@ const CourseCard: React.FC<CourseCardProps> = ({
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
-  const { isLessMediumScreen } = useScreenSize();
+  const { isMdDown } = useScreenSize();
 
   const handleClose = () => setIsOpen(false);
 
@@ -103,16 +89,13 @@ const CourseCard: React.FC<CourseCardProps> = ({
             <Box sx={{ flexGrow: 1, ml: 10 }}>
               {isLocked ? (
                 <img
-                  width={isLessMediumScreen ? 30 : 40}
-                  height={isLessMediumScreen ? 30 : 40}
+                  width={isMdDown ? 30 : 40}
+                  height={isMdDown ? 30 : 40}
                   src={LockedIcon}
                   alt="locked icon"
                 />
               ) : (
-                <CircularProgress
-                  value={progress}
-                  size={isLessMediumScreen ? 40 : 50}
-                />
+                <CircularProgress value={progress} size={isMdDown ? 40 : 50} />
               )}
             </Box>
           </Box>

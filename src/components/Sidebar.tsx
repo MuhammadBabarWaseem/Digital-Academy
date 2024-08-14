@@ -1,19 +1,20 @@
-import React, { useState, useEffect } from "react";
-import { Sidebar, Menu, MenuItem } from "react-pro-sidebar";
-import { FaCog, FaBook, FaChevronRight, FaChevronLeft } from "react-icons/fa";
-import useScreenSize from "../hooks/useScreenSize";
+import React, { useEffect, useState } from 'react';
+import { FaBook, FaChevronLeft, FaChevronRight, FaCog } from 'react-icons/fa';
+import { Menu, MenuItem, Sidebar } from 'react-pro-sidebar';
+
+import useScreenSize from '../hooks/useScreenSize';
 
 const SideNav: React.FC = () => {
-  const { isXsScreen } = useScreenSize();
-  const [collapsed, setCollapsed] = useState(isXsScreen);
+  const { isXsToMd } = useScreenSize();
+  const [collapsed, setCollapsed] = useState(isXsToMd);
 
   const handleCollapseToggle = () => {
     setCollapsed(!collapsed);
   };
 
   useEffect(() => {
-    setCollapsed(isXsScreen);
-  }, [isXsScreen]);
+    setCollapsed(isXsToMd);
+  }, [isXsToMd]);
 
   return (
     <Sidebar

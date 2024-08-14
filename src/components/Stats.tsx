@@ -1,6 +1,7 @@
-import { Container, Grid } from "@mui/material";
-import StatsCard from "./StatsCard";
-import { Badges } from "../utils/Badges";
+import { Container, Grid } from '@mui/material';
+
+import { Badges } from '../utils/Badges';
+import StatsCard from './StatsCard';
 
 const Stats = () => {
   return (

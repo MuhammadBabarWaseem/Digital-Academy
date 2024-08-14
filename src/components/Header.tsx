@@ -1,27 +1,15 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
+import { BsFillGrid3X3GapFill } from 'react-icons/bs';
+import { FaBars, FaChevronDown, FaSearch, FaTimes } from 'react-icons/fa';
+import { IoMdHelpCircle } from 'react-icons/io';
+import { IoOptions } from 'react-icons/io5';
+
 import {
-  AppBar,
-  Toolbar,
-  IconButton,
-  styled,
-  InputBase,
-  InputAdornment,
-  Divider,
-  Button,
-  useTheme,
-  Box,
-  Menu,
-  MenuItem,
-  Typography,
-  Avatar,
-  Modal,
-  TextField,
-} from "@mui/material";
-import { FaBars, FaChevronDown, FaSearch, FaTimes } from "react-icons/fa";
-import Logo from "../assets/Logo.png";
-import { IoOptions } from "react-icons/io5";
-import { IoMdHelpCircle } from "react-icons/io";
-import { BsFillGrid3X3GapFill } from "react-icons/bs";
+    AppBar, Avatar, Box, Button, Divider, IconButton, InputAdornment, InputBase, Menu, MenuItem,
+    Modal, styled, TextField, Toolbar, Typography, useTheme
+} from '@mui/material';
+
+import Logo from '../assets/Logo.png';
 
 const StyledAppBar = styled(AppBar)(({ theme }) => ({
   zIndex: theme.zIndex.drawer + 1,

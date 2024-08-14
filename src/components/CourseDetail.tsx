@@ -8,7 +8,7 @@ import useScreenSize from "../hooks/useScreenSize";
 
 const CourseDescription = () => {
   const [isExpanded, setIsExpanded] = useState(false);
-  const { isLargeScreen } = useScreenSize();
+  const { isLgUp } = useScreenSize();
   const navigate = useNavigate();
 
   const toggleDescription = () => {
@@ -52,7 +52,7 @@ const CourseDescription = () => {
         <Box
           mb={5}
           display="flex"
-          flexDirection={isLargeScreen ? "row" : "column"}
+          flexDirection={isLgUp ? "row" : "column"}
           justifyContent="space-between"
         >
           <Typography variant="h5" gutterBottom>
@@ -80,7 +80,7 @@ const CourseDescription = () => {
         <div
           style={{
             display: "flex",
-            justifyContent: isLargeScreen ? "flex-start" : "center",
+            justifyContent: isLgUp ? "flex-start" : "center",
             alignItems: "center",
             flexWrap: "wrap",
             gap: 5,
