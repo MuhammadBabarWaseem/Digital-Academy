@@ -233,20 +233,11 @@ const Header: React.FC = () => {
           anchorEl={profileMenuOpen}
           open={Boolean(profileMenuOpen)}
           onClose={handleProfileMenuClose}
-          anchorOrigin={{
-            vertical: "bottom",
-            horizontal: "right",
-          }}
-          transformOrigin={{
-            vertical: "top",
-            horizontal: "right",
-          }}
         >
           <MenuItem onClick={handleOpenModal}>Change Role</MenuItem>
           <MenuItem onClick={handleProfileMenuClose}>Logout</MenuItem>
         </ProfileMenu>
 
-        {/* Modal for Changing Role */}
         <StyledModal
           open={isModalOpen}
           onClose={handleCloseModal}
