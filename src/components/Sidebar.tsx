@@ -20,6 +20,7 @@ const SideNav: React.FC = () => {
       collapsed={collapsed}
       backgroundColor="white"
       style={{ border: "none" }}
+      width="182px"
     >
       <Menu>
         <MenuItem
