@@ -113,7 +113,7 @@ const UserProfile: React.FC<UserProfileProps> = ({ isDetails }) => {
               }}
             >
               <img
-                src="https://shorturl.at/qkuCw"
+                src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=3280&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                 alt="User's Profile"
                 style={{ width: "100%", height: "100%", objectFit: "cover" }}
               />
@@ -125,7 +125,7 @@ const UserProfile: React.FC<UserProfileProps> = ({ isDetails }) => {
                 variant="h6"
                 component="div"
               >
-                William Pearson
+                John Doe
               </Typography>
               <Typography fontSize={13} variant="body2" color="#333333">
                 Phone: +44 1324 5678
