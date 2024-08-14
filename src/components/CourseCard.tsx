@@ -76,7 +76,7 @@ const CourseCard: React.FC<CourseCardProps> = ({
           </Box>
         )}
         <CardContent>
-          <Typography variant="h6" component="div">
+          <Typography mb={2} variant="h6" component="div">
             {title}
           </Typography>
           {!isVideo && (
