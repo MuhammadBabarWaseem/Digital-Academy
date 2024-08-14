@@ -3,10 +3,15 @@ import './index.css';
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 
-import App from './App.tsx';
+import { ThemeProvider } from '@mui/material';
 
-createRoot(document.getElementById('root')!).render(
+import App from './App.tsx';
+import { AppTheme } from './themes/appTheme.ts';
+
+createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <App />
-  </StrictMode>,
-)
+    <ThemeProvider theme={AppTheme}>
+      <App />
+    </ThemeProvider>
+  </StrictMode>
+);

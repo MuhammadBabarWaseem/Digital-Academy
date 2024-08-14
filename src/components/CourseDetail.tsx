@@ -17,7 +17,12 @@ const CourseDescription = () => {
   return (
     <>
       <Container sx={{ bgcolor: "white", padding: 5, borderRadius: 2 }}>
-        <Typography variant="h5" gutterBottom>
+        <Typography
+          variant="h5"
+          gutterBottom
+          fontWeight="Regular"
+          color="#373737"
+        >
           Course | Title
         </Typography>
         <Grid

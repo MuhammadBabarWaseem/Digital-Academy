@@ -1,19 +1,26 @@
-import React, { useState } from 'react';
-import { IoCloseCircleOutline } from 'react-icons/io5';
-import { LuPlayCircle } from 'react-icons/lu';
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from "react";
+import { IoCloseCircleOutline } from "react-icons/io5";
+import { LuPlayCircle } from "react-icons/lu";
+import { useNavigate } from "react-router-dom";
 
-import ClockIcon from '@mui/icons-material/AccessTime';
-import VideoLibraryIcon from '@mui/icons-material/VideoLibrary';
+import ClockIcon from "@mui/icons-material/AccessTime";
+import VideoLibraryIcon from "@mui/icons-material/VideoLibrary";
 import {
-    Box, Button, Card, CardContent, CardMedia, IconButton, Modal, Typography
-} from '@mui/material';
+  Box,
+  Button,
+  Card,
+  CardContent,
+  CardMedia,
+  IconButton,
+  Modal,
+  Typography,
+} from "@mui/material";
 
-import LockedIcon from '../assets/Locked.png';
-import useScreenSize from '../hooks/useScreenSize';
-import { CourseCardProps } from '../types/interface';
-import { dummyCourseData } from '../utils/dummyData';
-import CircularProgress from './ProgressBar';
+import LockedIcon from "../assets/Locked.png";
+import useScreenSize from "../hooks/useScreenSize";
+import { CourseCardProps } from "../types/interface";
+import { dummyCourseData } from "../utils/dummyData";
+import CircularProgress from "./ProgressBar";
 
 const CourseCard: React.FC<CourseCardProps> = ({
   imageUrl,

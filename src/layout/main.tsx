@@ -20,7 +20,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <Root>
       <Header />
-      <Grid mt={6}>0
+      <Grid mt={6}>
         <SideNav />
       </Grid>
       <Main>
