@@ -1,5 +1,5 @@
 import { ChevronLeft } from "@mui/icons-material";
-import { Box, Container, Grid, Typography } from "@mui/material";
+import { Box, Chip, Container, Divider, Grid, Typography } from "@mui/material";
 import { useState } from "react";
 import { courseCardData } from "../utils/dummyData";
 import CourseCard from "./CourseCard";
@@ -49,11 +49,34 @@ const CourseDescription = () => {
         </Grid>
       </Container>
       <Container sx={{ bgcolor: "white", padding: 5, borderRadius: 2, mt: 2 }}>
-        <Box mb={5}>
+        <Box
+          mb={5}
+          display="flex"
+          flexDirection={isLargeScreen ? "row" : "column"}
+          justifyContent="space-between"
+        >
           <Typography variant="h5" gutterBottom>
             Videos
           </Typography>
+          <Box display="flex" gap={1}>
+            <Chip
+              sx={{ cursor: "pointer" }}
+              label="Show All"
+              variant="outlined"
+            />
+            <Chip
+              sx={{ cursor: "pointer" }}
+              label="In Progress"
+              variant="filled"
+            />
+            <Chip
+              sx={{ cursor: "pointer" }}
+              label="Completed"
+              variant="outlined"
+            />
+          </Box>
         </Box>
+        <Divider sx={{ mb: 2 }} />
         <div
           style={{
             display: "flex",
