@@ -17,6 +17,7 @@ import { useNavigate } from "react-router-dom";
 import { LuPlayCircle } from "react-icons/lu";
 import { dummyCourseData } from "../utils/dummyData";
 import { IoCloseCircleOutline } from "react-icons/io5";
+import useScreenSize from "../hooks/useScreenSize";
 
 interface CourseCardProps {
   imageUrl: string;
@@ -39,6 +40,7 @@ const CourseCard: React.FC<CourseCardProps> = ({
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
+  const { isLessMediumScreen } = useScreenSize();
 
   const handleClose = () => setIsOpen(false);
 
@@ -101,13 +103,16 @@ const CourseCard: React.FC<CourseCardProps> = ({
             <Box sx={{ flexGrow: 1, ml: 10 }}>
               {isLocked ? (
                 <img
-                  width={50}
-                  height={50}
+                  width={isLessMediumScreen ? 30 : 40}
+                  height={isLessMediumScreen ? 30 : 40}
                   src={LockedIcon}
                   alt="locked icon"
                 />
               ) : (
-                <CircularProgress value={progress} size={60} />
+                <CircularProgress
+                  value={progress}
+                  size={isLessMediumScreen ? 40 : 50}
+                />
               )}
             </Box>
           </Box>

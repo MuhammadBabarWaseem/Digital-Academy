@@ -250,16 +250,14 @@ const Header: React.FC = () => {
             </Typography>
             <TextField
               fullWidth
-              label="Role"
+              label="Current Role"
               variant="outlined"
               sx={{ mb: 2 }}
             />
             <TextField
               fullWidth
-              label="Reason"
+              label="Additional Comment"
               variant="outlined"
-              multiline
-              rows={4}
               sx={{ mb: 2 }}
             />
             <Button

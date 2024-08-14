@@ -45,6 +45,7 @@ const CircularProgressComponent: React.FC<CircularProgressProps> = ({
           top: "50%",
           left: "50%",
           transform: "translate(-50%, -50%)",
+          fontSize: 14,
           color: (theme) => theme.palette.text.primary,
         }}
       >

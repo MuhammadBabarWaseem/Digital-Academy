@@ -6,8 +6,6 @@ import {
   styled,
   useTheme,
   Button,
-  Menu,
-  MenuItem,
   Divider,
   Card,
   Modal,
@@ -41,24 +39,13 @@ interface UserProfileProps {
 
 const UserProfile: React.FC<UserProfileProps> = ({ isDetails }) => {
   const theme = useTheme();
-  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
-  const open = Boolean(anchorEl);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [role, setRole] = useState("");
   const [description, setDescription] = useState("");
 
-  const handleClick = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
-
   const handleModalOpen = () => {
     setIsModalOpen(true);
-    handleClose();
   };
 
   const handleModalClose = () => {
@@ -86,26 +73,12 @@ const UserProfile: React.FC<UserProfileProps> = ({ isDetails }) => {
           </Typography>
 
           <Box sx={{ display: "flex", justifyContent: "center", mt: 2 }}>
-            <FilterButton variant="outlined" onClick={handleClick}>
+            <FilterButton variant="outlined" onClick={handleModalOpen}>
               <span style={{ marginRight: theme.spacing(2) }}>
                 Request Role Update
               </span>
               <FaChevronDown color="#373737" width={8} height={12} />
             </FilterButton>
-            <Menu
-              anchorEl={anchorEl}
-              open={open}
-              onClose={handleClose}
-              PaperProps={{
-                sx: {
-                  width: 200,
-                },
-              }}
-            >
-              <MenuItem onClick={handleModalOpen}>Change Role</MenuItem>
-              <MenuItem onClick={handleClose}>Option 2</MenuItem>
-              <MenuItem onClick={handleClose}>Option 3</MenuItem>
-            </Menu>
           </Box>
           <Divider sx={{ my: 3 }} />
         </>
@@ -213,7 +186,7 @@ const UserProfile: React.FC<UserProfileProps> = ({ isDetails }) => {
           </Typography>
           <TextField
             fullWidth
-            label="New Role"
+            label="Current Role"
             variant="outlined"
             value={role}
             onChange={(e) => setRole(e.target.value)}
@@ -221,10 +194,8 @@ const UserProfile: React.FC<UserProfileProps> = ({ isDetails }) => {
           />
           <TextField
             fullWidth
-            label="Reason for Change"
+            label="Additional Comment"
             variant="outlined"
-            multiline
-            rows={4}
             value={description}
             onChange={(e) => setDescription(e.target.value)}
             sx={{ mb: 2 }}
