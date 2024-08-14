@@ -1,109 +1,19 @@
-import React, { useState } from "react";
-import { BsFillGrid3X3GapFill } from "react-icons/bs";
-import { FaBars, FaChevronDown, FaSearch, FaTimes } from "react-icons/fa";
-import { IoMdHelpCircle } from "react-icons/io";
-import { IoOptions } from "react-icons/io5";
+import React, { useState } from 'react';
+import { BsFillGrid3X3GapFill } from 'react-icons/bs';
+import { FaBars, FaChevronDown, FaSearch, FaTimes } from 'react-icons/fa';
+import { IoMdHelpCircle } from 'react-icons/io';
+import { IoOptions } from 'react-icons/io5';
 
 import {
-  AppBar,
-  Avatar,
-  Box,
-  Button,
-  Divider,
-  IconButton,
-  InputAdornment,
-  InputBase,
-  Menu,
-  MenuItem,
-  Modal,
-  styled,
-  TextField,
-  Toolbar,
-  Typography,
-  useTheme,
-} from "@mui/material";
+    Avatar, Box, Button, IconButton, InputAdornment, MenuItem, TextField, Toolbar, Typography,
+    useTheme
+} from '@mui/material';
 
-import Logo from "../assets/Logo.png";
-
-const StyledAppBar = styled(AppBar)(({ theme }) => ({
-  zIndex: theme.zIndex.drawer + 1,
-  backgroundColor: "#FFFFFF",
-  boxShadow: "none",
-}));
-
-const StyledInputBase = styled(InputBase)(({ theme }) => ({
-  marginLeft: theme.spacing(2),
-  padding: theme.spacing(1),
-  width: 250,
-  height: 40,
-  borderRadius: 80,
-  paddingLeft: `calc(0.1em + ${theme.spacing(2)})`,
-  border: "1px solid #C7C7C7",
-  [theme.breakpoints.down("sm")]: {
-    width: "150px",
-    fontSize: "0.75rem",
-  },
-  [theme.breakpoints.up("lg")]: {
-    width: "400px",
-  },
-}));
-
-const StyledDivider = styled(Divider)(({ theme }) => ({
-  height: "40px",
-  opacity: 0.4,
-  margin: theme.spacing(0, 2),
-  backgroundColor: "#C7C7C7",
-  alignSelf: "center",
-  [theme.breakpoints.down("sm")]: {
-    display: "none",
-  },
-}));
-
-const FilterButton = styled(Button)(({ theme }) => ({
-  marginLeft: theme.spacing(2),
-  padding: theme.spacing(1, 2),
-  backgroundColor: "#FFFFFF",
-  border: "1px solid #373737",
-  borderRadius: theme.shape.borderRadius * 5,
-  textTransform: "none",
-  display: "flex",
-  alignItems: "center",
-  color: "#373737",
-  gap: theme.spacing(1),
-  [theme.breakpoints.down("sm")]: {
-    display: "none",
-  },
-  "&:hover": {
-    backgroundColor: "#FFFFFF",
-    borderColor: "#373737",
-  },
-}));
-
-const UserProfile = styled(Box)(({ theme }) => ({
-  display: "flex",
-  alignItems: "center",
-  gap: theme.spacing(1),
-}));
-
-const ProfileMenu = styled(Menu)(({ theme }) => ({
-  mt: theme.spacing(5),
-}));
-
-const StyledModal = styled(Modal)(() => ({
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-  border: "none",
-  borderColor: "white",
-}));
-
-const ModalContent = styled(Box)(({ theme }) => ({
-  backgroundColor: "#FFF",
-  padding: theme.spacing(4),
-  borderRadius: theme.shape.borderRadius,
-  maxWidth: 400,
-  width: "100%",
-}));
+import Logo from '../assets/Logo.png';
+import {
+    FilterButton, ModalContent, ProfileMenu, StyledAppBar, StyledDivider, StyledInputBase,
+    StyledModal, UserProfile
+} from './Style';
 
 const Header: React.FC = () => {
   const theme = useTheme();

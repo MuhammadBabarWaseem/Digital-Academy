@@ -1,4 +1,4 @@
-import { CardData } from '../types/interface';
+import { CardData, Course } from '../types/interface';
 import { Badges } from './Badges';
 
 export const fundamentalCardData: CardData[] = [
@@ -11,6 +11,12 @@ export const businessCardData: CardData[] = [
   { id: 1, imageSrc: Badges[0], text: "Planer Function" },
   { id: 2, imageSrc: Badges[1], text: "Inventory Management" },
   { id: 3, imageSrc: Badges[2], text: "Inventory Management" },
+];
+
+export const coursesData: Course[] = [
+  { title: "Course 1 Title", videos: 6, time: "1hr 49min", progress: 78 },
+  { title: "Course 2 Title", videos: 14, time: "4hr 16min", progress: 2 },
+  { title: "Course 3 Title", videos: 21, time: "7hr 22min", progress: 0 },
 ];
 
 export const dummyCourseData = [

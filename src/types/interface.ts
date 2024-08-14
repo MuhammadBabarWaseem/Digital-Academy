@@ -31,3 +31,7 @@ export interface CardData {
   imageSrc: string;
   text: string;
 }
+
+export interface UserProfileProps {
+  isDetails?: boolean;
+}

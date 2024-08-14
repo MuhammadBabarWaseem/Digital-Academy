@@ -2,32 +2,14 @@ import React, { useState } from 'react';
 import { FaChevronDown } from 'react-icons/fa';
 
 import {
-    Avatar, Box, Button, Card, CardContent, Divider, Modal, styled, TextField, Typography, useTheme
+    Avatar, Box, Button, Card, CardContent, Divider, Modal, TextField, Typography, useTheme
 } from '@mui/material';
 
+import { UserProfileProps } from '../types/interface';
 import { Badges } from '../utils/Badges';
 import RenderBadges from './Badges';
 import CirclularProgress from './ProgressBar';
-
-const FilterButton = styled(Button)(({ theme }) => ({
-  padding: theme.spacing(1, 2),
-  alignItems: "center",
-  backgroundColor: "#FFFFFF",
-  border: "1px solid #373737",
-  borderRadius: theme.shape.borderRadius * 5,
-  textTransform: "none",
-  display: "flex",
-  color: "#373737",
-  gap: theme.spacing(1),
-  "&:hover": {
-    backgroundColor: "#FFFFFF",
-    borderColor: "#373737",
-  },
-}));
-
-interface UserProfileProps {
-  isDetails?: boolean;
-}
+import { ProfileFilterButton } from './Style';
 
 const UserProfile: React.FC<UserProfileProps> = ({ isDetails }) => {
   const theme = useTheme();
@@ -65,12 +47,12 @@ const UserProfile: React.FC<UserProfileProps> = ({ isDetails }) => {
           </Typography>
 
           <Box sx={{ display: "flex", justifyContent: "center", mt: 2 }}>
-            <FilterButton variant="outlined" onClick={handleModalOpen}>
+            <ProfileFilterButton variant="outlined" onClick={handleModalOpen}>
               <span style={{ marginRight: theme.spacing(2) }}>
                 Request Role Update
               </span>
               <FaChevronDown color="#373737" width={8} height={12} />
-            </FilterButton>
+            </ProfileFilterButton>
           </Box>
           <Divider sx={{ my: 3 }} />
         </>
