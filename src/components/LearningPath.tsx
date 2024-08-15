@@ -34,7 +34,7 @@ const LearningPaths: React.FC = () => {
         sx={{
           minWidth: 135,
           minHeight: 143,
-          marginRight: 2,
+          marginRight: isXsOnly ? 0 : 2,
           bgcolor: bgColor,
           borderRadius: 3,
           boxShadow: "none",
@@ -70,11 +70,16 @@ const LearningPaths: React.FC = () => {
 
   return (
     <Box my={4} p={3} bgcolor="white" justifyContent="center">
-      <Box display="flex" alignItems="center" justifyContent="space-between">
+      <Box
+        display="flex"
+        flexDirection={isXsOnly ? "column" : "row"}
+        alignItems="center"
+        justifyContent="space-between"
+      >
         <Typography variant="h5" fontSize={isXsOnly ? 16 : 24} gutterBottom>
           Your Learning Paths
         </Typography>
-        <Box display="flex" gap={isXsOnly ? 1 : 2}>
+        <Box display="flex" my={isXsOnly ? 2 : 0} gap={isXsOnly ? 1 : 2}>
           <Button
             variant="contained"
             sx={{

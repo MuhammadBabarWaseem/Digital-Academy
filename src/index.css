@@ -1,0 +1,14 @@
+@media screen and (max-width: 767px) {
+        .css-x5rhxz.ps-collapsed {
+        width: 50px !important;
+        min-width: 50px !important;
+    }
+
+    aside.ps-sidebar-root ul li > a {
+        padding-right: 8px !important;
+        padding-left: 4px !important;
+    }
+    .css-32q0xd-MuiGrid-root>.MuiGrid-item {
+        max-width: 100% !important;
+    }
+}

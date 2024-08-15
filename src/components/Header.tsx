@@ -1,31 +1,42 @@
-import React, { useState } from 'react';
-import { BsFillGrid3X3GapFill } from 'react-icons/bs';
-import { FaBars, FaChevronDown, FaSearch, FaTimes } from 'react-icons/fa';
-import { IoMdHelpCircle } from 'react-icons/io';
-import { IoOptions } from 'react-icons/io5';
+import React, { useState } from "react";
+import { BsFillGrid3X3GapFill } from "react-icons/bs";
+import { FaChevronDown, FaSearch } from "react-icons/fa";
+import { IoMdHelpCircle } from "react-icons/io";
+import { IoOptions } from "react-icons/io5";
 
 import {
-    Avatar, Box, Button, IconButton, InputAdornment, MenuItem, TextField, Toolbar, Typography,
-    useTheme
-} from '@mui/material';
+  Avatar,
+  Box,
+  Button,
+  IconButton,
+  InputAdornment,
+  MenuItem,
+  TextField,
+  Toolbar,
+  Typography,
+  useTheme,
+} from "@mui/material";
 
-import Logo from '../assets/Logo.png';
+import Logo from "../assets/Logo.png";
 import {
-    FilterButton, ModalContent, ProfileMenu, StyledAppBar, StyledDivider, StyledInputBase,
-    StyledModal, UserProfile
-} from './Style';
+  FilterButton,
+  ModalContent,
+  ProfileMenu,
+  StyledAppBar,
+  StyledDivider,
+  StyledInputBase,
+  StyledModal,
+  UserProfile,
+} from "./Style";
+import useScreenSize from "../hooks/useScreenSize";
 
 const Header: React.FC = () => {
   const theme = useTheme();
-  const [mobileOpen, setMobileOpen] = useState(false);
+  const { isXsOnly, isSmUp } = useScreenSize();
   const [profileMenuOpen, setProfileMenuOpen] = useState<null | HTMLElement>(
     null
   );
   const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const handleDrawerToggle = () => {
-    setMobileOpen(!mobileOpen);
-  };
 
   const handleProfileMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
     setProfileMenuOpen(event.currentTarget);
@@ -54,15 +65,6 @@ const Header: React.FC = () => {
         }}
       >
         <Box sx={{ display: "flex", alignItems: "center", flexGrow: 1 }}>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            edge="start"
-            onClick={handleDrawerToggle}
-            sx={{ mr: 2, display: { md: "none" } }}
-          >
-            {mobileOpen ? <FaTimes /> : <FaBars />}
-          </IconButton>
           <img
             src={Logo}
             width={150}
@@ -109,34 +111,39 @@ const Header: React.FC = () => {
             <Avatar
               alt="User Name"
               src="https://shorturl.at/qkuCw"
-              sx={{ width: 40, height: 40, cursor: "pointer" }}
-            />
-            <Box
               sx={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "flex-start",
-                xs: "none",
-                md: "flex",
+                width: isXsOnly ? 30 : 40,
+                height: isXsOnly ? 30 : 40,
+                cursor: "pointer",
               }}
-            >
-              <Typography color="black" sx={{ fontSize: 16 }}>
-                William Pearson
-              </Typography>
-
-              <Typography
-                variant="caption"
-                sx={{ fontSize: 12 }}
-                color="textSecondary"
+            />
+            {isSmUp ? (
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "flex-start",
+                  xs: "none",
+                  md: "flex",
+                }}
               >
-                william@pearson.com
-              </Typography>
-            </Box>
+                <Typography color="black" sx={{ fontSize: isXsOnly ? 12 : 16 }}>
+                  William Pearson
+                </Typography>
+
+                <Typography
+                  variant="caption"
+                  sx={{ fontSize: isXsOnly ? 10 : 12 }}
+                  color="textSecondary"
+                >
+                  william@pearson.com
+                </Typography>
+              </Box>
+            ) : null}
             <FaChevronDown
               color="#373737"
               cursor="pointer"
-              width={12}
-              height={12}
+              size={isXsOnly ? 12 : 16}
             />
           </UserProfile>
         </Box>

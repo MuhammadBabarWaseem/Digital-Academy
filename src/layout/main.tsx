@@ -4,6 +4,7 @@ import { LayoutProps } from "../types/interface";
 
 import Header from "../components/Header";
 import SideNav from "../components/Sidebar";
+import useScreenSize from "../hooks/useScreenSize";
 
 const Root = styled("div")(() => ({
   display: "flex",
@@ -17,13 +18,22 @@ const Main = styled("main")(({ theme }) => ({
 }));
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
+  const { isXsOnly } = useScreenSize();
   return (
     <Root>
       <Header />
-      <Grid mt={6}>
+      <Grid
+        mt={6}
+        position={isXsOnly ? "fixed" : "relative"}
+        height="100%"
+        bgcolor="white"
+        zIndex={99}
+      >
         <SideNav />
       </Grid>
-      <Main>
+      <Main
+        sx={{ width: isXsOnly ? "70%" : "auto", ml: isXsOnly ? "14%" : "auto" }}
+      >
         <Toolbar />
         {children}
       </Main>

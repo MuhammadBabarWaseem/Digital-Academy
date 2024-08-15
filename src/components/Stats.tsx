@@ -1,14 +1,16 @@
-import { Container, Grid } from '@mui/material';
+import { Grid } from "@mui/material";
 
-import { Badges } from '../constant/Badges';
-import StatsCard from './StatsCard';
+import { Badges } from "../constant/Badges";
+import StatsCard from "./StatsCard";
+import useScreenSize from "../hooks/useScreenSize";
 
 const Stats = () => {
+  const { isXsOnly } = useScreenSize();
   return (
-    <Container maxWidth={false}>
+    <>
       <Grid
         container
-        spacing={4}
+        spacing={isXsOnly ? 1 : 4}
         sx={{
           display: "grid",
           gridTemplateColumns: {
@@ -41,7 +43,7 @@ const Stats = () => {
           />
         </Grid>
       </Grid>
-    </Container>
+    </>
   );
 };
 
