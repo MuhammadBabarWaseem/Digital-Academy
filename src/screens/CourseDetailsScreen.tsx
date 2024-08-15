@@ -1,8 +1,9 @@
-import { Grid } from "@mui/material";
-import useScreenSize from "../hooks/useScreenSize";
-import UserProfile from "../components/UserProfile";
-import CourseDescription from "../components/CourseDetail";
-import Layout from "../layout/main";
+import { Grid } from '@mui/material';
+
+import CourseDescription from '../components/CourseDetail';
+import UserProfile from '../components/UserProfile';
+import useScreenSize from '../hooks/useScreenSize';
+import Layout from '../layout/main';
 
 const CourseDetails = () => {
   const { isLgUp } = useScreenSize();

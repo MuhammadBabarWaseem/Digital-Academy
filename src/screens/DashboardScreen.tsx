@@ -1,9 +1,10 @@
-import { Grid } from "@mui/material";
-import UserProfile from "../components/UserProfile";
-import Stats from "../components/Stats";
-import LearningPaths from "../components/LearningPath";
-import useScreenSize from "../hooks/useScreenSize";
-import Layout from "../layout/main";
+import { Grid } from '@mui/material';
+
+import LearningPaths from '../components/LearningPath';
+import Stats from '../components/Stats';
+import UserProfile from '../components/UserProfile';
+import useScreenSize from '../hooks/useScreenSize';
+import Layout from '../layout/main';
 
 const Dashboard = () => {
   const { isLgUp } = useScreenSize();

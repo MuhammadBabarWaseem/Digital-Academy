@@ -1,11 +1,13 @@
-import { ChevronLeft } from "@mui/icons-material";
-import { Box, Chip, Container, Divider, Grid, Typography } from "@mui/material";
-import { useState } from "react";
-import { courseCardData } from "../utils/dummyData";
-import CourseCard from "./CourseCard";
-import { useNavigate } from "react-router-dom";
-import useScreenSize from "../hooks/useScreenSize";
-import { ROUTES } from "../constant/Routes";
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
+import { ChevronLeft } from '@mui/icons-material';
+import { Box, Chip, Container, Divider, Grid, Typography } from '@mui/material';
+
+import { ROUTES } from '../constant/Routes';
+import useScreenSize from '../hooks/useScreenSize';
+import { courseCardData } from '../utils/dummyData';
+import CourseCard from './CourseCard';
 
 const CourseDescription = () => {
   const [isExpanded, setIsExpanded] = useState(false);
