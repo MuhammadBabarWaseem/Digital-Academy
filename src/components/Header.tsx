@@ -153,8 +153,18 @@ const Header: React.FC = () => {
           open={Boolean(profileMenuOpen)}
           onClose={handleProfileMenuClose}
         >
-          <MenuItem onClick={handleOpenModal}>Change Role</MenuItem>
-          <MenuItem onClick={handleProfileMenuClose}>Logout</MenuItem>
+          <MenuItem
+            sx={{ fontSize: isXsOnly ? 12 : 16 }}
+            onClick={handleOpenModal}
+          >
+            Change Role
+          </MenuItem>
+          <MenuItem
+            sx={{ fontSize: isXsOnly ? 12 : 16 }}
+            onClick={handleProfileMenuClose}
+          >
+            Logout
+          </MenuItem>
         </ProfileMenu>
 
         <StyledModal

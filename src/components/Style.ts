@@ -87,6 +87,10 @@ export const ModalContent = styled(Box)(({ theme }) => ({
   borderRadius: theme.shape.borderRadius,
   maxWidth: 400,
   width: "100%",
+  borderColor: "none",
+  "&:focus": {
+    outline: "none",
+  },
 }));
 
 export const ProfileFilterButton = styled(Button)(({ theme }) => ({
