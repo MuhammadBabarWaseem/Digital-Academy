@@ -1,4 +1,5 @@
-import { Avatar, Box, Card, Typography } from '@mui/material';
+import { Avatar, Box, Card, Typography } from "@mui/material";
+import useScreenSize from "../hooks/useScreenSize";
 
 const StatsCard = ({
   imageUrl,
@@ -9,6 +10,7 @@ const StatsCard = ({
   textLine1: string;
   number: number;
 }) => {
+  const { isXsOnly } = useScreenSize();
   return (
     <Card
       sx={{
@@ -23,16 +25,20 @@ const StatsCard = ({
         <Avatar
           src={imageUrl}
           alt="Stat Icon"
-          sx={{ width: 48, height: 48, marginRight: 2 }}
+          sx={{
+            width: isXsOnly ? 30 : 48,
+            height: isXsOnly ? 30 : 48,
+            marginRight: 2,
+          }}
         />
         <Box sx={{ display: "flex", flexDirection: "column" }}>
-          <Typography fontSize={19} variant="body1">
+          <Typography fontSize={isXsOnly ? 14 : 19} variant="body1">
             {textLine1}
           </Typography>
         </Box>
       </Box>
       <Typography
-        fontSize={40}
+        fontSize={isXsOnly ? 20 : 40}
         fontWeight={300}
         variant="body1"
         sx={{ marginLeft: 2 }}

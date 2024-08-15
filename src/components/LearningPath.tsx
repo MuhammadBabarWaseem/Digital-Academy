@@ -1,16 +1,27 @@
-import React, { useState } from 'react';
-import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+import React, { useState } from "react";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
-import { Box, Button, Card, CardContent, Divider, Typography } from '@mui/material';
+import {
+  Box,
+  Button,
+  Card,
+  CardContent,
+  Divider,
+  Typography,
+} from "@mui/material";
 
-import useScreenSize from '../hooks/useScreenSize';
-import { CardData } from '../types/interface';
-import { businessCardData, courseCardData, fundamentalCardData } from '../utils/dummyData';
-import CourseCard from './CourseCard';
+import useScreenSize from "../hooks/useScreenSize";
+import { CardData } from "../types/interface";
+import {
+  businessCardData,
+  courseCardData,
+  fundamentalCardData,
+} from "../utils/dummyData";
+import CourseCard from "./CourseCard";
 
 const LearningPaths: React.FC = () => {
   const [selectedCourse, setSelectedCourse] = useState<string>("");
-  const { isXlUp, isLgUp, isXsToMd } = useScreenSize();
+  const { isXlUp, isLgUp, isXsToMd, isXsOnly } = useScreenSize();
 
   const handleCardClick = (text: string) => {
     setSelectedCourse(text);
@@ -60,16 +71,16 @@ const LearningPaths: React.FC = () => {
   return (
     <Box my={4} p={3} bgcolor="white" justifyContent="center">
       <Box display="flex" alignItems="center" justifyContent="space-between">
-        <Typography variant="h5" gutterBottom>
+        <Typography variant="h5" fontSize={isXsOnly ? 16 : 24} gutterBottom>
           Your Learning Paths
         </Typography>
-        <Box display="flex" gap={2}>
+        <Box display="flex" gap={isXsOnly ? 1 : 2}>
           <Button
             variant="contained"
             sx={{
               borderRadius: "50%",
-              minWidth: "40px",
-              minHeight: "40px",
+              minWidth: isXsOnly ? "30px" : "40px",
+              minHeight: isXsOnly ? "30px" : "40px",
               padding: 0,
             }}
           >
@@ -79,8 +90,8 @@ const LearningPaths: React.FC = () => {
             variant="contained"
             sx={{
               borderRadius: "50%",
-              minWidth: "40px",
-              minHeight: "40px",
+              minWidth: isXsOnly ? "30px" : "40px",
+              minHeight: isXsOnly ? "30px" : "40px",
               padding: 0,
             }}
           >
@@ -96,7 +107,7 @@ const LearningPaths: React.FC = () => {
         gap={isXlUp ? 4 : 0}
       >
         <Box>
-          <Typography variant="h6" gutterBottom>
+          <Typography variant="h6" fontSize={isXsOnly ? 15 : 20} gutterBottom>
             Fundamentals
           </Typography>
           <Box
@@ -111,6 +122,7 @@ const LearningPaths: React.FC = () => {
           />
           <Box
             display="flex"
+            flexDirection={isXsOnly ? "column" : "row"}
             justifyContent="center"
             alignItems="center"
             flexWrap="nowrap"
@@ -121,7 +133,7 @@ const LearningPaths: React.FC = () => {
         </Box>
 
         <Box sx={{ mt: isXsToMd ? 2 : 0 }}>
-          <Typography variant="h6" gutterBottom>
+          <Typography variant="h6" fontSize={isXsOnly ? 15 : 20} gutterBottom>
             Business Function
           </Typography>
           <Box
@@ -136,6 +148,7 @@ const LearningPaths: React.FC = () => {
           <Box
             display="flex"
             justifyContent="center"
+            flexDirection={isXsOnly ? "column" : "row"}
             alignItems="center"
             flexWrap="nowrap"
             mt={1}
