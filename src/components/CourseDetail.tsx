@@ -5,6 +5,7 @@ import { courseCardData } from "../utils/dummyData";
 import CourseCard from "./CourseCard";
 import { useNavigate } from "react-router-dom";
 import useScreenSize from "../hooks/useScreenSize";
+import { ROUTES } from "../constant/Routes";
 
 const CourseDescription = () => {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -26,7 +27,7 @@ const CourseDescription = () => {
           Course | Title
         </Typography>
         <Grid
-          onClick={() => navigate("/")}
+          onClick={() => navigate(ROUTES.HOME)}
           sx={{ ml: -1, cursor: "pointer" }}
           container
           alignItems={"center"}

@@ -6,7 +6,7 @@ import {
 } from '@mui/material';
 
 import { UserProfileProps } from '../types/interface';
-import { Badges } from '../utils/Badges';
+import { Badges } from '../constant/Badges';
 import RenderBadges from './Badges';
 import CirclularProgress from './ProgressBar';
 import { ProfileFilterButton } from './Style';
