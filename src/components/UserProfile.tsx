@@ -1,18 +1,29 @@
-import React, { useState } from 'react';
-import { FaChevronDown } from 'react-icons/fa';
+import React, { useState } from "react";
+import { FaChevronDown } from "react-icons/fa";
 
 import {
-    Avatar, Box, Button, Card, CardContent, Divider, Modal, TextField, Typography, useTheme
-} from '@mui/material';
+  Avatar,
+  Box,
+  Button,
+  Card,
+  CardContent,
+  Divider,
+  Modal,
+  TextField,
+  Typography,
+  useTheme,
+} from "@mui/material";
 
-import { UserProfileProps } from '../types/interface';
-import { Badges } from '../constant/Badges';
-import RenderBadges from './Badges';
-import CirclularProgress from './ProgressBar';
-import { ProfileFilterButton } from './Style';
+import { Badges } from "../constant/Badges";
+import useScreenSize from "../hooks/useScreenSize";
+import { UserProfileProps } from "../types/interface";
+import RenderBadges from "./Badges";
+import CirclularProgress from "./ProgressBar";
+import { ProfileFilterButton } from "./Style";
 
 const UserProfile: React.FC<UserProfileProps> = ({ isDetails }) => {
   const theme = useTheme();
+  const { isXsOnly } = useScreenSize();
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [role, setRole] = useState("");
@@ -148,7 +159,7 @@ const UserProfile: React.FC<UserProfileProps> = ({ isDetails }) => {
             top: "50%",
             left: "50%",
             transform: "translate(-50%, -50%)",
-            width: 400,
+            width: isXsOnly ? 250 : 400,
             bgcolor: "background.paper",
             boxShadow: 24,
             p: 4,

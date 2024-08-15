@@ -1,20 +1,27 @@
-import React, { useState } from 'react';
-import { IoCloseCircleOutline } from 'react-icons/io5';
-import { LuPlayCircle } from 'react-icons/lu';
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from "react";
+import { IoCloseCircleOutline } from "react-icons/io5";
+import { LuPlayCircle } from "react-icons/lu";
+import { useNavigate } from "react-router-dom";
 
-import ClockIcon from '@mui/icons-material/AccessTime';
-import VideoLibraryIcon from '@mui/icons-material/VideoLibrary';
+import ClockIcon from "@mui/icons-material/AccessTime";
+import VideoLibraryIcon from "@mui/icons-material/VideoLibrary";
 import {
-    Box, Button, Card, CardContent, CardMedia, IconButton, Modal, Typography
-} from '@mui/material';
+  Box,
+  Button,
+  Card,
+  CardContent,
+  CardMedia,
+  IconButton,
+  Modal,
+  Typography,
+} from "@mui/material";
 
-import LockedIcon from '../assets/Locked.png';
-import { ROUTES } from '../constant/Routes';
-import useScreenSize from '../hooks/useScreenSize';
-import { CourseCardProps } from '../types/interface';
-import { dummyCourseData } from '../utils/dummyData';
-import CircularProgress from './ProgressBar';
+import LockedIcon from "../assets/Locked.png";
+import { ROUTES } from "../constant/Routes";
+import useScreenSize from "../hooks/useScreenSize";
+import { CourseCardProps } from "../types/interface";
+import { dummyCourseData } from "../utils/dummyData";
+import CircularProgress from "./ProgressBar";
 
 const CourseCard: React.FC<CourseCardProps> = ({
   imageUrl,
@@ -27,7 +34,7 @@ const CourseCard: React.FC<CourseCardProps> = ({
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
-  const { isMdDown } = useScreenSize();
+  const { isMdDown, isXsOnly } = useScreenSize();
 
   const handleClose = () => setIsOpen(false);
 
@@ -63,7 +70,12 @@ const CourseCard: React.FC<CourseCardProps> = ({
           </Box>
         )}
         <CardContent>
-          <Typography mb={2} variant="h6" component="div">
+          <Typography
+            mb={2}
+            variant="h6"
+            fontSize={isXsOnly ? 15 : 20}
+            component="div"
+          >
             {title}
           </Typography>
           {!isVideo && (
@@ -87,7 +99,7 @@ const CourseCard: React.FC<CourseCardProps> = ({
             >
               {duration}
             </Typography>
-            <Box sx={{ flexGrow: 1, ml: 10 }}>
+            <Box sx={{ flexGrow: 1, ml: isXsOnly ? 3 : 10 }}>
               {isLocked ? (
                 <img
                   width={isMdDown ? 30 : 40}
@@ -107,6 +119,8 @@ const CourseCard: React.FC<CourseCardProps> = ({
               sx={{
                 backgroundColor: "#3198ED",
                 borderRadius: "50px",
+                fontSize: isXsOnly ? 12 : 14,
+                textTransform: "none",
                 color: "#FFFFFF",
                 width: "100%",
                 "&:hover": {
@@ -124,8 +138,6 @@ const CourseCard: React.FC<CourseCardProps> = ({
         component={Box}
         open={isOpen}
         onClose={handleClose}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
         sx={{
           display: "flex",
           alignItems: "center",

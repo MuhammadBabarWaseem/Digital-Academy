@@ -1,17 +1,17 @@
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-import { ChevronLeft } from '@mui/icons-material';
-import { Box, Chip, Container, Divider, Grid, Typography } from '@mui/material';
+import { ChevronLeft } from "@mui/icons-material";
+import { Box, Chip, Container, Divider, Grid, Typography } from "@mui/material";
 
-import { ROUTES } from '../constant/Routes';
-import useScreenSize from '../hooks/useScreenSize';
-import { courseCardData } from '../utils/dummyData';
-import CourseCard from './CourseCard';
+import { ROUTES } from "../constant/Routes";
+import useScreenSize from "../hooks/useScreenSize";
+import { courseCardData } from "../utils/dummyData";
+import CourseCard from "./CourseCard";
 
 const CourseDescription = () => {
   const [isExpanded, setIsExpanded] = useState(false);
-  const { isLgUp } = useScreenSize();
+  const { isLgUp, isXsOnly } = useScreenSize();
   const navigate = useNavigate();
 
   const toggleDescription = () => {
@@ -19,11 +19,14 @@ const CourseDescription = () => {
   };
   return (
     <>
-      <Container sx={{ bgcolor: "white", padding: 5, borderRadius: 2 }}>
+      <Container
+        sx={{ bgcolor: "white", padding: isXsOnly ? 1.5 : 5, borderRadius: 2 }}
+      >
         <Typography
           variant="h5"
           gutterBottom
           fontWeight="Regular"
+          fontSize={isXsOnly ? 18 : 24}
           color="#373737"
         >
           Course | Title
@@ -35,11 +38,13 @@ const CourseDescription = () => {
           alignItems={"center"}
         >
           <ChevronLeft />
-          <Typography variant="body1">Back to Learning Path</Typography>
+          <Typography variant="body1" fontSize={isXsOnly ? 14 : 16}>
+            Back to Learning Path
+          </Typography>
         </Grid>
 
         <Grid mt={2}>
-          <Typography variant="h6" gutterBottom>
+          <Typography variant="h6" fontSize={isXsOnly ? 18 : 24} gutterBottom>
             Descriptions:
           </Typography>
           <Typography variant="body1" color="#666666">
@@ -50,23 +55,39 @@ const CourseDescription = () => {
           <Typography
             onClick={toggleDescription}
             color="#666666"
+            fontSize={isXsOnly ? 14 : 16}
             sx={{ mt: 2, cursor: "pointer", textDecoration: "underline" }}
           >
             {isExpanded ? "Read Less" : "Read More"}
           </Typography>
         </Grid>
       </Container>
-      <Container sx={{ bgcolor: "white", padding: 5, borderRadius: 2, mt: 2 }}>
+      <Container
+        sx={{
+          bgcolor: "white",
+          padding: isXsOnly ? 1.5 : 5,
+          borderRadius: 2,
+          mt: 2,
+        }}
+      >
         <Box
           mb={5}
           display="flex"
           flexDirection={isLgUp ? "row" : "column"}
           justifyContent="space-between"
         >
-          <Typography variant="h5" gutterBottom>
+          <Typography
+            variant="h5"
+            textAlign={isXsOnly ? "center" : "left"}
+            gutterBottom
+          >
             Videos
           </Typography>
-          <Box display="flex" gap={1}>
+          <Box
+            display="flex"
+            flexDirection={isXsOnly ? "column" : "row"}
+            gap={1}
+          >
             <Chip
               sx={{ cursor: "pointer" }}
               label="Show All"
