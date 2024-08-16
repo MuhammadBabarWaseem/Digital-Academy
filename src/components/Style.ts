@@ -91,6 +91,9 @@ export const ModalContent = styled(Box)(({ theme }) => ({
   "&:focus": {
     outline: "none",
   },
+  [theme.breakpoints.down("sm")]: {
+    width: "74%",
+  },
 }));
 
 export const ProfileFilterButton = styled(Button)(({ theme }) => ({
