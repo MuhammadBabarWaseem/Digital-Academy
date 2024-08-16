@@ -69,7 +69,7 @@ const UserProfile: React.FC<UserProfileProps> = ({ isDetails }) => {
         </>
       )}
 
-      <CirclularProgress value={50} size={isDetails ? 100 : 80} />
+      <CirclularProgress value={50} size={isDetails ? 150 : 110} />
       <Typography mt={2} fontWeight="bold">
         {isDetails ? "Course Progress" : "Learning Path Progress"}
       </Typography>

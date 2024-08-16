@@ -9,6 +9,7 @@ const CircularProgressComponent: React.FC<CircularProgressProps> = ({
   size = 80,
 }) => {
   const progressValue = Math.max(0, Math.min(value, 100));
+  const calculatedFontSize = size * 0.25;
 
   return (
     <Box sx={{ position: "relative", display: "inline-flex" }}>
@@ -43,7 +44,8 @@ const CircularProgressComponent: React.FC<CircularProgressProps> = ({
           top: "50%",
           left: "50%",
           transform: "translate(-50%, -50%)",
-          fontSize: 14,
+          fontSize: calculatedFontSize,
+          fontWeight:'800',
           color: (theme) => theme.palette.text.primary,
         }}
       >
